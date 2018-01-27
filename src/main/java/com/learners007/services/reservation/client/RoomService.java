@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.learners007.services.reservation.domain.Room;
 
-@FeignClient("ROOMSERVICES")
+@FeignClient(name="ROOMSERVICES", fallback=RoomServiceFallBack.class)
 public interface RoomService {
 
 	@RequestMapping(value="/rooms", method=RequestMethod.GET)
